@@ -25,6 +25,14 @@
 
 #define KERNEL_INDEX_SMC 2
 
+#define MAC_OS_X_VERSION_10_16      101600
+#define MAC_OS_VERSION_11_0         110000
+#define MAC_OS_VERSION_12_0         120000
+
+#if (MAC_OS_X_VERSION_MAX_ALLOWED < 120000) // Before macOS 12 Monterey
+  #define kIOMainPortDefault kIOMasterPortDefault
+#endif
+
 #define SMC_CMD_READ_BYTES 5
 #define SMC_CMD_WRITE_BYTES 6
 #define SMC_CMD_READ_INDEX 8
